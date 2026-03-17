@@ -1,58 +1,32 @@
 # Pneumonia Detection via Chest X-Rays
-![Accuracy](https://img.shields.io/badge/Accuracy-85%25-green?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+**Validation Accuracy: 85%** | **Built with TensorFlow & VGG16**
 
-## Project Overview
-This project focuses on the automated detection of pneumonia using **Deep Learning** and **Computer Vision**. By leveraging **Transfer Learning** with the **VGG16** architecture, the model is trained to analyze chest X-ray images and classify them as either "Pneumonia" or "Normal."
+## Why this project?
+I built this to see how effectively Deep Learning can assist in medical screenings. Diagnosing pneumonia from X-rays can be subjective and time-consuming; this model aims to provide a reliable "second opinion" to help prioritize urgent cases in a clinical setting.
 
-It acts as a diagnostic aid, helping to prioritize cases in clinical workflows and reduce the time required for initial screenings.
+## The Technical Approach (What I actually did)
+Instead of building a model from scratch, I used **Transfer Learning** with **VGG16**. Since VGG16 was trained on millions of images, it already understands "shapes." I just had to fine-tune the final layers to understand "lungs."
 
-### Key Technical Features
-* **Architecture:** VGG16 (Pre-trained on ImageNet) with fine tuned top layers.
-* **Optimization:** Adam Optimizer with a custom learning rate.
-* **Preprocessing:** Advanced **Data Augmentation** (Rotation, Width/Height shifts, Zoom, and Horizontal flips) to prevent overfitting and improve the models robustness.
-* **Regularization:** Integrated **Dropout** layers to ensure the model generalizes well to new, unseen medical data.
-* **Result:** Achieved a consistent **85% Test Accuracy**.
+* **Handling the Data:** Medical data is tricky. I used **Data Augmentation** (zooming and rotating) to make the model more robust so it doesn't just memorize the training images.
+* **The Struggle with Overfitting:** Early versions of the model were "over-learning" the training set. I added **Dropout layers** to force the network to find more general patterns.
+* **Final Result:** Hit a solid **85% accuracy** on the test set.
 
 ---
 
-## Dataset Detail
-The dataset used is the "Chest X-Ray Images (Pneumonia)" dataset, which includes thousands of validated images.
-* **Training Set:** Used to extract features and train the neural network.
-* **Validation Set:** Used during training to monitor for overfitting.
-* **Test Set:** Used for the final evaluation to confirm the **85% accuracy** benchmark.
+## How to see the results
 
----
+### 1. Just browsing?
+Click the `.ipynb` file right here on GitHub. I've left comments in the code explaining each step and included the final Accuracy/Loss graphs at the bottom.
 
-## How to View and Run
+### 2. Want to run it? (Google Colab)
+The easiest way is to open this in [Google Colab](https://colab.research.google.com/). Just go to the "GitHub" tab and paste this URL: `https://github.com/Awais123-creator/Pneumonia_Detection`
 
-### 1. Instant Preview (No Setup Required)
-As GitHub automatically renders `.ipynb` (Jupyter Notebook) files. Simply click on the file in this repository to see the **code, step-by-step explanations, and the final results (Accuracy/Loss graphs)** without running anything.
+### 3. Local / Docker Setup
+If you want to run this locally:
+1. Clone the repo: `git clone https://github.com/Awais123-creator/Pneumonia_Detection.git`
+2. Install the tools: `pip install -r requirements.txt`
+3. Run `jupyter notebook`
 
-### 2. Run in Google Colab (Recommended)
-To execute the code yourself in the cloud:
-1. Open [Google Colab](https://colab.research.google.com/).
-2. Go to the **GitHub** tab.
-3. Paste this repository URL: `https://github.com/Awais123-creator/Pneumonia_Detection`
-4. Run the cells to see the model in action.
-
-### 3. Local Installation & Execution
-Follow these steps to run the project on your own computer:
-
-* **Clone the repository:**
-    ```bash
-    git clone [https://github.com/Awais123-creator/Pneumonia_Detection.git](https://github.com/Awais123-creator/Pneumonia_Detection.git)
-    ```
-* **Install dependencies:**
-    Paste this into your terminal/command prompt to install the necessary libraries:
-    ```bash
-    pip install tensorflow pandas matplotlib opencv-python
-    ```
-* **Open with Jupyter:**
-    Launch your environment, type the following command, and open the `.ipynb` file from the dashboard:
-    ```bash
-    jupyter notebook
-    ```
+*Note: I’ve also included a **Dockerfile** for those who prefer containerized environments to avoid versioning headaches.*
 
 ---
