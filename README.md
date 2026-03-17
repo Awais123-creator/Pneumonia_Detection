@@ -11,6 +11,15 @@ Instead of building a model from scratch, I used **Transfer Learning** with **VG
 * **The Struggle with Overfitting:** Early versions of the model were "over-learning" the training set. I added **Dropout layers** to force the network to find more general patterns.
 * **Final Result:** Hit a solid **85% accuracy** on the test set.
 
+### Proof of Performance
+Here are the training curves. You can see the model steadily improving without significant overfitting, which was my main goal during the fine-tuning phase.
+
+**Accuracy Curve:**
+![Accuracy Plot](accuracy_plot.png)
+
+**Loss Curve:**
+![Loss Plot](loss_plot.png)
+
 ---
 
 ## How to see the results
